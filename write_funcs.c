@@ -6,7 +6,8 @@
  * @c: the char to print
  * Return: On succes 1.
  * On error, -1 is returned, and errno is set appropiately.
- * Description: _putchar uses a local buffer of 1024 to call write as little as possible
+ * Description: _putchar uses a local buffer of 1024
+ * to call write as little as possible
  */
 int _putchar(char c)
 {
