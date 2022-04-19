@@ -23,7 +23,7 @@ int get_flag(char s, flags_t *f)
 			i = 1;
 			break;
 		case '#':
-			f->hase = 1;
+			f->hash = 1;
 			i = 1;
 			break;
 
