@@ -27,7 +27,7 @@ typedef struct flags
 typedef struct printHandler
 {
 	char c;
-	int (*f)(va-list ap, flags_t *f);
+	int (*f)(va_list ap, flags_t *f);
 } ph;
 
 /* print nums */
@@ -63,15 +63,15 @@ int _putchar(char c);
 int _puts(char *str);
 
 /* print_custom */
-int print_rot13(va_list 1, flags_t *f);
-int print_rev(va_list 1, flags_t *f);
-int print_bigS(va_list 1, flags_t *f);
+int print_rot13(va_list l, flags_t *f);
+int print_rev(va_list l, flags_t *f);
+int print_bigS(va_list l, flags_t *f);
 
 /* print_address */
-int print_address(va_list 1, flags_t *f);
+int print_address(va_list l, flags_t *f);
 
 /* print_percent */
-int print_percent(va_list 1, flags_t *f);
+int print_percent(va_list l, flags_t *f);
 
 #endif
 
