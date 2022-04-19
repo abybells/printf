@@ -13,7 +13,7 @@ int print_int(va_list l, flags_t *f)
 
 	if (f->space == 1 && f->plus == 0 && n >= 0)
 		res += _putchar(' ');
-	if (f->plus == 1 &&& n >= 0)
+	if (f->plus == 1 && n >= 0)
 		res += _putchar('+');
 	if (n <= 0)
 		res++;
