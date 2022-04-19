@@ -17,3 +17,17 @@ int print_string(va_list l, flags_t *f)
 	return (_puts(s));
 }
 
+/**
+ * print_char - prints a character
+ * @1: va_list arguments from _printf
+ * if a flag is passed to _printf
+ * Return: number of char printed
+ */
+int print_char(va_list 1, flags_t *f)
+{
+	(void)f;
+	_putchar(va_arg(1, int));
+	return (1);
+}
+
+
