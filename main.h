@@ -1,35 +1,66 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
-#include <stdio.h>
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <stlib.h>
 #include <stdarg.h>
 
-int _putchar(char c);
-int print_int(va_list arg);
-int print_unsigned(va_list arg);
-int _printf(const char *format, ...);
-int print_char(va_list arg);
-int print_str(va_list arg);
-int print_percent(void);
-void print_binary(unsigned int n, unsigned int *printed);
-int print_unsignedToBinary(va_list arg);
-int print_oct(va_list arg);
-int print_unsignedIntToHex(unsigned int num, char _case);
-int print_hex_base(va_list arg, char _case);
-int print_hex(va_list arg);
-int print_HEX(va_list arg);
-int print_STR(va_list arg);
+/**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' characters
+ * @space: flag for the ' ' characters
+ * @hash: flag for the '#' characters
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
 
 /**
- * struct identifierStruct - structure definition of a printTypeStruct
- * @identifier: type
- * @indentifier: indent
- * @printer: function to print
+ * struct printhandler - struct to choose the right function depending
+ * on the format specifier passed to _printf()
+ * @c: format specifier
+ * @f: pointer to the correct printing function
  */
-typedef struct identifierStruct
+typedef struct printHandler
 {
-	char *indentifier;
-	int (*printer)(va_list);
-} identifierStruct;
+	char c;
+	int (*f)(va-list ap, flags_t *f);
+} ph;
 
+/* print nums */
+int print_int(va_list l, flags_t *f);
+void print_number(int n);
+int print_unsigned(va_list l, flags_t *f);
+int count_digit(int i);
 
-#endif
+/* print_base */
+int print_hex(va_list l, flags_t *f);
+int print_hex_big(va_list l, flags_t *f);
+int print_binary(va_list l, flags_t *f);
+int print_octal(va_list l, flags_t *f);
+
+/* converter */
+char *convert(unsigned long int num, int base, int lowercase);
+
+/* _printf */
+int _printf(const char *format, ...);
+
+/* get_print */
+int (*get_print(char s))(va_list, flags_t *);
+
+/* get_flag */
+int get_flag(char s, flags_t *f);
+
+/* print_alpha */
+int print_string(va_list l, flags_t *f);
+int print_char(va_list l, flags_t *f);
+
+/* write funcs */
+int _putchar(char c);
+int _puts(char *str);
+
+/* print_custom */
+
