@@ -33,7 +33,7 @@ int print_unsigned(va_list l, flags_t *f)
 	char *str = convert(u, 10, 0);
 
 	(void)f;
-	return (_puts(Str));
+	return (_puts(str));
 }
 
 /**
@@ -80,4 +80,3 @@ int count_digit(int i)
 	}
 	return (d);
 }
-
