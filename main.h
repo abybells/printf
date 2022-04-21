@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
+#include <limits.h>
+#include <unistd.h>
 
 /**
  * struct flags - struct containing flags to "turn on"
@@ -10,12 +12,14 @@
  * @plus: flag for the '+' characters
  * @space: flag for the ' ' characters
  * @hash: flag for the '#' characters
+ * @neg: flag for the '-' characters
  */
 typedef struct flags
 {
 	int plus;
 	int space;
 	int hash;
+	int neg;
 } flags_t;
 
 /**
@@ -72,6 +76,18 @@ int print_address(va_list l, flags_t *f);
 
 /* print_percent */
 int print_percent(va_list l, flags_t *f);
+
+/* handle_flags */
+unsigned char handle_flags(const char *flag, char *index);
+
+/* handle_length */
+unsigned char handle_length(const char *modifier, char *index);
+
+/* handle_width */
+int handle_width(va_list args, const char *modifier, char *index);
+
+/* handle_precision */
+int handle_precision(va_list args, const char *modifier, char *index);
 
 #endif
 
